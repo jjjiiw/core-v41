@@ -1,3 +1,5 @@
+local prefix "."
+
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 local Window = Rayfield:CreateWindow({
    Name = "Core V4",
@@ -264,12 +266,26 @@ end
 })
 
 
+Rayfield:Notify({
+   Title = "Player has joined",
+   Content = "Player has joined",
+   Duration = 2.2,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+
 local players = game:GetService("Players")
 players.PlayerAdded:connect(function(player)
   print(player,"just joined.")
-  game.Players:Chat("player has joined say hi!")
+  --If you want, use a ui library to display a notif.
 end)
-
 
 local Tab = Window:CreateTab("other guis", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("other guis")
@@ -281,3 +297,20 @@ local Button = Tab:CreateButton({
    end,
 })
 
+local Button = Tab:CreateButton({
+   Name = "auto-res",
+   Callback = function()
+      local ReplicatedStorage = game.ReplicatedStorage
+local Dominus = ReplicatedStorage:WaitForChild('Dominus')
+local DropperPart = workspace:WaitForChild('DropperPart')
+
+--// Main
+while wait(math.random(1,5)) do
+    local NewDominus = Dominus:Clone()
+    NewDominus.Parent = DropperPart
+    NewDominus.CFrame = DropperPart.CFrame
+    game:GetService('Debris'):AddItem(NewDominus,3) -- The '3' is how many secs it will disappear in.
+end
+
+   end,
+})
