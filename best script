@@ -296,6 +296,3 @@ local Button = Tab:CreateButton({
       loadstring(game:HttpGet("https://raw.githubusercontent.com/SEPOXCRAFT/KohlsCool/main/Scripts/KohlsCoolNewOne.lua", true))() 
    end,
 })
-
-game.Players:Chat("h [Core V4] Core V4 owner has joined the game")
-
