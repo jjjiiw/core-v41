@@ -266,27 +266,6 @@ end
 })
 
 
-Rayfield:Notify({
-   Title = "Player has joined",
-   Content = "Player has joined",
-   Duration = 2.2,
-   Image = 4483362458,
-   Actions = { -- Notification Buttons
-      Ignore = {
-         Name = "Okay!",
-         Callback = function()
-         print("The user tapped Okay!")
-      end
-   },
-},
-})
-
-local players = game:GetService("Players")
-players.PlayerAdded:connect(function(player)
-  print(player,"just joined.")
-  --If you want, use a ui library to display a notif.
-end)
-
 local Tab = Window:CreateTab("other guis", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("other guis")
 
